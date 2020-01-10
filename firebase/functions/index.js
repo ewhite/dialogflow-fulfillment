@@ -14,12 +14,18 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
  
   function welcome(agent) {
-    agent.add(`Welcom to a different agent!`);
+    agent.add('Welcome to Personal Capital!');
+    agent.add('How can I help you?');
   }
  
   function fallback(agent) {
     agent.add(`I didn't understand`);
     agent.add(`I'm sorry, can you try again?`);
+  }
+
+  function getTotalBalance(agent) {
+    // todo: sign into Personal Capital and fetch data!
+    agent.add("I am fetching your PersonalCapitol net worth now...");
   }
 
   // // Uncomment and edit to make your own intent handler
@@ -55,6 +61,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
+  intentMap.set('Get Total Balance', getTotalBalance);
   // intentMap.set('your intent name here', yourFunctionHandler);
   // intentMap.set('your intent name here', googleAssistantHandler);
   agent.handleRequest(intentMap);

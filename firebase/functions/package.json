@@ -18,6 +18,7 @@
     "dialogflow": "^0.6.0",
     "dialogflow-fulfillment": "^0.5.0",
     "eslint": "^6.8.0",
+    "fetch": "^1.1.0",
     "firebase-admin": "^5.13.1",
     "firebase-functions": "^2.0.2"
   }
